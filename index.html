@@ -13,6 +13,8 @@
     <div class="star s3"></div>
     <div class="star s4"></div>
     <div class="star s5"></div>
+    <div class="star s6"></div>
+    <div class="star s7"></div>
   </div>
 
   <main class="container">
@@ -20,7 +22,8 @@
       <div class="card">
         <p class="eyebrow">A birthday story for Abby</p>
         <h1>Welcome, Chicken 🐥</h1>
-        <p id="intro-text"></p>
+
+        <p id="intro-text" class="story-text"></p>
 
         <div class="stats">
           <p><strong>Birthday Magic:</strong> 23</p>
@@ -29,21 +32,29 @@
           <p><strong>Mr. Whiskers Approval:</strong> Pending</p>
         </div>
 
-        <div class="choices">
-          <button onclick="showScene('scene-choice-1')">Start Adventure</button>
+        <div class="goose-box">
+          <p class="small-note">Need guidance?</p>
+          <button onclick="showRandomLine(event)">Ask Goose for advice</button>
+          <p id="goose-line" class="tiny goose-line">Goose is standing by.</p>
         </div>
 
-        <p class="secret-trigger" onclick="showScene('scene-secret')">psst</p>
+        <div class="choices">
+          <button onclick="showScene('scene-choice-1', event)">Start Adventure</button>
+        </div>
+
+        <p class="secret-trigger" onclick="showScene('scene-secret', event)">psst</p>
+        <p class="cat-trigger" onclick="mrWhiskersMessage(event)">🐱</p>
       </div>
     </section>
 
     <section id="scene-choice-1" class="scene">
       <div class="card">
         <h2>How should Chicken begin her special day?</h2>
+        <p class="small-note">Choose your path wisely. Or do not. Goose will still be impressed.</p>
         <div class="choices">
-          <button onclick="showScene('scene-drpepper')">Grab a Dr. Pepper</button>
-          <button onclick="showScene('scene-cozy')">Visit a cozy little world</button>
-          <button onclick="showScene('scene-goose')">Follow Goose</button>
+          <button onclick="showScene('scene-drpepper', event)">Grab a Dr. Pepper</button>
+          <button onclick="showScene('scene-cozy', event)">Visit a cozy little world</button>
+          <button onclick="showScene('scene-goose', event)">Follow Goose</button>
         </div>
       </div>
     </section>
@@ -57,8 +68,8 @@
         </p>
         <p class="tiny">Achievement unlocked: Certified Chicken Behavior</p>
         <div class="choices">
-          <button onclick="showScene('scene-memory-hub')">Search for birthday clues</button>
-          <button onclick="showScene('scene-memory-hub')">Ask Goose what he is smiling about</button>
+          <button onclick="showScene('scene-memory-hub', event)">Search for birthday clues</button>
+          <button onclick="showScene('scene-memory-hub', event)">Ask Goose what he is smiling about</button>
         </div>
       </div>
     </section>
@@ -68,13 +79,13 @@
         <h2>The Cozy World</h2>
         <p>
           You wake up in a soft lavender world. Books are stacked neatly,
-          crochet projects are in progress, and Mr. Whiskers rules as a tiny king.
-          Everything feels calm and warm.
+          crochet projects are in progress, pixel farms are thriving,
+          and Mr. Whiskers rules as a tiny king from a sunny windowsill.
         </p>
         <p class="tiny">This path smells faintly of books, yarn, and birthday magic.</p>
         <div class="choices">
-          <button onclick="showScene('scene-memory-hub')">Visit the library cottage</button>
-          <button onclick="showScene('scene-memory-hub')">Walk toward the flower field</button>
+          <button onclick="showScene('scene-memory-hub', event)">Visit the library cottage</button>
+          <button onclick="showScene('scene-memory-hub', event)">Walk toward the flower field</button>
         </div>
       </div>
     </section>
@@ -84,27 +95,41 @@
         <h2>Following Goose</h2>
         <p>
           Goose takes your hand and says he knows a few places worth revisiting.
-          You can tell he is about to get a little sentimental.
+          You can tell he is about to get sentimental in a way that is maybe a little dramatic,
+          but also very real.
         </p>
         <p class="tiny">+1 Goose affection</p>
         <div class="choices">
-          <button onclick="showScene('scene-memory-hub')">Go somewhere familiar</button>
-          <button onclick="showScene('scene-memory-hub')">Let him surprise you</button>
+          <button onclick="showScene('scene-memory-hub', event)">Go somewhere familiar</button>
+          <button onclick="showScene('scene-memory-hub', event)">Let him surprise you</button>
         </div>
       </div>
     </section>
 
     <section id="scene-memory-hub" class="scene">
-      <div class="card">
+      <div class="card wide-card">
         <h2>Memory Select</h2>
         <p>Choose a memory to unlock, Chicken.</p>
         <p class="small-note">Each one contains important Goose feelings.</p>
-        <p id="memory-counter">Memories unlocked: 0 / 4</p>
+        <p id="memory-counter">Memories unlocked: 0 / 12</p>
+
+        <div class="memory-grid">
+          <button onclick="showScene('scene-club185', event)">Club 185</button>
+          <button onclick="showScene('scene-beach', event)">Glencoe Beach</button>
+          <button onclick="showScene('scene-pool', event)">Paradise</button>
+          <button onclick="showScene('scene-fall', event)">Alphabet Incident</button>
+          <button onclick="showScene('scene-cubsreds', event)">Cubs vs Reds</button>
+          <button onclick="showScene('scene-wedding', event)">Wedding Dance</button>
+          <button onclick="showScene('scene-halloween', event)">Clue Halloween</button>
+          <button onclick="showScene('scene-skating', event)">Ice Skating</button>
+          <button onclick="showScene('scene-jade', event)">JADE in Chicago</button>
+          <button onclick="showScene('scene-whiskersescape', event)">Mr. Whiskers Escape</button>
+          <button onclick="showScene('scene-fireworks', event)">Fourth of July</button>
+          <button onclick="showScene('scene-wisdom', event)">Taking Care of You</button>
+        </div>
+
         <div class="choices">
-          <button onclick="showScene('scene-club185')">The First Date</button>
-          <button onclick="showScene('scene-beach')">The Beach</button>
-          <button onclick="showScene('scene-pool')">Paradise</button>
-          <button onclick="showScene('scene-fall')">The Alphabet Incident</button>
+          <button onclick="showScene('scene-ending', event)">Go to Final Message</button>
         </div>
       </div>
     </section>
@@ -119,8 +144,8 @@
         </p>
         <p class="tiny">A suspiciously important first chapter.</p>
         <div class="choices">
-          <button onclick="showScene('scene-memory-hub')">Back to memories</button>
-          <button onclick="showScene('scene-ending')">Continue</button>
+          <button onclick="showScene('scene-memory-hub', event)">Back to memories</button>
+          <button onclick="showScene('scene-ending', event)">Continue</button>
         </div>
       </div>
     </section>
@@ -139,8 +164,8 @@
         </p>
         <p class="tiny">That was the moment I knew this was real for me.</p>
         <div class="choices">
-          <button onclick="showScene('scene-memory-hub')">Back to memories</button>
-          <button onclick="showScene('scene-ending')">Continue</button>
+          <button onclick="showScene('scene-memory-hub', event)">Back to memories</button>
+          <button onclick="showScene('scene-ending', event)">Continue</button>
         </div>
       </div>
     </section>
@@ -155,8 +180,8 @@
         </p>
         <p class="tiny">Some memories never really leave.</p>
         <div class="choices">
-          <button onclick="showScene('scene-memory-hub')">Back to memories</button>
-          <button onclick="showScene('scene-ending')">Continue</button>
+          <button onclick="showScene('scene-memory-hub', event)">Back to memories</button>
+          <button onclick="showScene('scene-ending', event)">Continue</button>
         </div>
       </div>
     </section>
@@ -174,8 +199,164 @@
         </p>
         <p class="tiny">Goose remorse level: medium.</p>
         <div class="choices">
-          <button onclick="showScene('scene-memory-hub')">Back to memories</button>
-          <button onclick="showScene('scene-ending')">Continue</button>
+          <button onclick="showScene('scene-memory-hub', event)">Back to memories</button>
+          <button onclick="showScene('scene-ending', event)">Continue</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="scene-cubsreds" class="scene">
+      <div class="card">
+        <h2>Cubs vs Reds</h2>
+        <p>
+          We drove to Cincinnati to watch the Cubs play the Reds.
+          I, very bravely, supported the Cubs. You, very smugly, supported the Reds.
+        </p>
+        <p>
+          The Reds won, which was deeply unfortunate for me and extremely enjoyable for you.
+          You still do not let me forget it, which honestly feels in character.
+        </p>
+        <p class="tiny">A tragic sports memory for Goose. A glorious one for Chicken.</p>
+        <div class="choices">
+          <button onclick="showScene('scene-memory-hub', event)">Back to memories</button>
+          <button onclick="showScene('scene-ending', event)">Continue</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="scene-wedding" class="scene">
+      <div class="card">
+        <h2>The Wedding Dance</h2>
+        <p>
+          At your step-sister's wedding, we danced together all night.
+          Then we snuck away from the reception for a little while
+          and shared a slow dance with nobody watching.
+        </p>
+        <p>
+          It felt quiet and simple and perfect.
+          Just one of those moments where the rest of the world disappears.
+        </p>
+        <p class="tiny">This one feels like a scene from a movie.</p>
+        <div class="choices">
+          <button onclick="showScene('scene-memory-hub', event)">Back to memories</button>
+          <button onclick="showScene('scene-ending', event)">Continue</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="scene-halloween" class="scene">
+      <div class="card">
+        <h2>Clue Halloween</h2>
+        <p>
+          We celebrated Halloween by dressing up as Clue characters,
+          which was already iconic before the night even started.
+        </p>
+        <p>
+          We had a few drinks, you got a little drunk,
+          and then you went home and watched It's the Great Pumpkin, Charlie Brown.
+          Honestly, that is elite seasonal behavior.
+        </p>
+        <p class="tiny">Certified adorable Halloween conduct.</p>
+        <div class="choices">
+          <button onclick="showScene('scene-memory-hub', event)">Back to memories</button>
+          <button onclick="showScene('scene-ending', event)">Continue</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="scene-skating" class="scene">
+      <div class="card">
+        <h2>Ice Skating</h2>
+        <p>
+          We went ice skating with Taylor and Jackson.
+          We met them there, skated around together, and I helped you on the ice.
+        </p>
+        <p>
+          You were a little wobbly at first, but you got the hang of it quickly.
+          Watching you figure it out was very cute, as many things you do are.
+        </p>
+        <p class="tiny">You adapted fast. Goose was impressed.</p>
+        <div class="choices">
+          <button onclick="showScene('scene-memory-hub', event)">Back to memories</button>
+          <button onclick="showScene('scene-ending', event)">Continue</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="scene-jade" class="scene">
+      <div class="card">
+        <h2>JADE in Chicago</h2>
+        <p>
+          We drove all the way from Columbus to Chicago for Valentine's Day weekend
+          so we could see JADE at House of Blues.
+        </p>
+        <p>
+          We stayed with my family in Deerfield, went downtown for the show,
+          and you got that zip-up JADE merch hoodie that you wear all the time.
+          Every time I see it, I think of that trip.
+        </p>
+        <p class="tiny">Angel of My Dreams energy detected.</p>
+        <div class="choices">
+          <button onclick="showScene('scene-memory-hub', event)">Back to memories</button>
+          <button onclick="showScene('scene-ending', event)">Continue</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="scene-whiskersescape" class="scene">
+      <div class="card">
+        <h2>Mr. Whiskers Escape</h2>
+        <p>
+          I dropped you off at your house after we hung out,
+          and then Mr. Whiskers got out.
+        </p>
+        <p>
+          I chased him around the house and caught him,
+          but my UGG slippers flew off while I was running him down.
+          It was heroic. It was chaotic. It was not graceful.
+        </p>
+        <p class="tiny">Mr. Whiskers containment mission: successful.</p>
+        <div class="choices">
+          <button onclick="showScene('scene-memory-hub', event)">Back to memories</button>
+          <button onclick="showScene('scene-ending', event)">Continue</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="scene-fireworks" class="scene">
+      <div class="card">
+        <h2>Fourth of July</h2>
+        <p>
+          We watched fireworks together at Thomas Worthington High School with your family.
+          We sat near the football field and enjoyed the show together.
+        </p>
+        <p>
+          It was one of those summer memories that feels warm even when you think about it later.
+          Just being beside you made it feel special.
+        </p>
+        <p class="tiny">A very good American summer night.</p>
+        <div class="choices">
+          <button onclick="showScene('scene-memory-hub', event)">Back to memories</button>
+          <button onclick="showScene('scene-ending', event)">Continue</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="scene-wisdom" class="scene">
+      <div class="card">
+        <h2>Taking Care of You</h2>
+        <p>
+          When you got your wisdom teeth out, I got to take care of you.
+          I made you food, kept you comfy, and stayed with you so you would not have to feel lousy alone.
+        </p>
+        <p>
+          It is a very recent memory, but it already means a lot to me.
+          Loving you is there in the fun moments, but it is there in the care too.
+        </p>
+        <p class="tiny">Softest Goose mode activated.</p>
+        <div class="choices">
+          <button onclick="showScene('scene-memory-hub', event)">Back to memories</button>
+          <button onclick="showScene('scene-ending', event)">Continue</button>
         </div>
       </div>
     </section>
@@ -193,7 +374,7 @@
           I cannot confirm that, but it feels true.
         </p>
         <div class="choices">
-          <button onclick="showScene('scene-start')">Go Back</button>
+          <button onclick="showScene('scene-start', event)">Go Back</button>
         </div>
       </div>
     </section>
@@ -201,24 +382,28 @@
     <section id="scene-ending" class="scene">
       <div class="card">
         <p class="eyebrow">Final message unlocked</p>
+        <p class="tiny">Final level reached</p>
         <h2>Happy 23rd Birthday, Chicken 💜</h2>
-        <p>
-          This is a birthday website, yes, but mostly it is a little reminder
-          of how much I love you and how much these memories mean to me.
-        </p>
-        <p>
-          From Club 185 to Glencoe Beach, from hotel pool moments to dumb road trip games,
-          being with you has made my life sweeter, warmer, and so much more meaningful.
-        </p>
-        <p>
-          I still think about that moment on the beach when I told you I loved you.
-          I think about Paradise playing in the pool.
-          I think about the way even ordinary moments with you turn into memories I want to keep.
-        </p>
-        <p>
-          Happy birthday, Abby.
-          I love you so much, and I feel incredibly lucky that I get to be your Goose.
-        </p>
+
+        <p id="ending-text" class="story-text"></p>
+
+        <div class="ending-rest">
+          <p>
+            From Club 185 to Glencoe Beach, from hotel pool moments to road trip chaos,
+            from concerts to cat chases to fireworks to taking care of each other,
+            being with you has made my life sweeter, warmer, and so much more meaningful.
+          </p>
+          <p>
+            I still think about that moment on the beach when I told you I loved you.
+            I think about Paradise playing in the pool.
+            I think about the slow dance at the wedding.
+            I think about the way even ordinary moments with you turn into memories I want to keep.
+          </p>
+          <p>
+            Happy birthday, Abby.
+            I love you so much, and I feel incredibly lucky that I get to be your Goose.
+          </p>
+        </div>
 
         <div id="true-ending" style="display: none;">
           <p class="bonus">You found every memory.</p>
@@ -233,14 +418,12 @@
         <p class="signature">Love, Goose</p>
 
         <div class="choices">
-          <button onclick="showScene('scene-start')">Play Again</button>
+          <button onclick="showScene('scene-start', event)">Play Again</button>
         </div>
       </div>
     </section>
   </main>
 
-
-  
   <script src="script.js"></script>
 </body>
 </html>
