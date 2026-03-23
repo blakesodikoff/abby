@@ -1,10 +1,12 @@
 :root {
   --bg1: #f8f3ff;
   --bg2: #e9dbff;
-  --card: rgba(255, 255, 255, 0.82);
+  --bg3: #d9c6ff;
+  --card: rgba(255, 255, 255, 0.84);
   --text: #4d3b63;
   --accent: #9b7fd1;
   --accent-dark: #7a5fb0;
+  --accent-soft: #c9b0f2;
   --shadow: 0 12px 30px rgba(123, 95, 176, 0.15);
 }
 
@@ -19,6 +21,7 @@ body {
   background: linear-gradient(180deg, var(--bg1), var(--bg2));
   min-height: 100vh;
   overflow-x: hidden;
+  animation: glowShift 8s ease-in-out infinite alternate;
 }
 
 .container {
@@ -31,18 +34,18 @@ body {
 .scene {
   display: none;
   width: 100%;
-  max-width: 760px;
+  max-width: 820px;
 }
 
 .scene.active {
   display: block;
-  animation: fadeIn 0.5s ease;
+  animation: fadeIn 0.45s ease;
 }
 
 .card {
   background: var(--card);
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.65);
   border-radius: 24px;
   box-shadow: var(--shadow);
   padding: 32px;
@@ -55,15 +58,31 @@ body {
   box-shadow: 0 16px 36px rgba(123, 95, 176, 0.18);
 }
 
+.wide-card {
+  max-width: 900px;
+}
+
 h1,
 h2 {
   margin-top: 0;
   line-height: 1.2;
 }
 
+h1 {
+  font-size: 2.2rem;
+}
+
+h2 {
+  font-size: 1.7rem;
+}
+
 p {
   font-size: 1.08rem;
   line-height: 1.7;
+}
+
+.story-text {
+  min-height: 72px;
 }
 
 .eyebrow {
@@ -87,6 +106,13 @@ p {
   margin-top: 24px;
 }
 
+.memory-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(160px, 1fr));
+  gap: 12px;
+  margin-top: 22px;
+}
+
 button {
   border: none;
   border-radius: 999px;
@@ -100,15 +126,15 @@ button {
 }
 
 button:hover {
-  transform: translateY(-2px);
+  transform: translateY(-2px) scale(1.02);
   background: var(--accent-dark);
 }
 
 .stats {
   margin: 24px auto;
   padding: 16px 18px;
-  max-width: 420px;
-  background: rgba(255, 255, 255, 0.65);
+  max-width: 440px;
+  background: rgba(255, 255, 255, 0.68);
   border-radius: 18px;
   text-align: left;
   box-shadow: 0 8px 20px rgba(123, 95, 176, 0.08);
@@ -119,16 +145,35 @@ button:hover {
   font-size: 0.98rem;
 }
 
-.secret-trigger {
+.goose-box {
+  margin-top: 22px;
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.58);
+  border-radius: 18px;
+}
+
+.goose-line {
+  min-height: 24px;
+}
+
+.secret-trigger,
+.cat-trigger {
   margin-top: 18px;
   font-size: 0.9rem;
   opacity: 0.5;
   cursor: pointer;
-  transition: opacity 0.2s ease;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  display: inline-block;
 }
 
-.secret-trigger:hover {
-  opacity: 0.9;
+.secret-trigger:hover,
+.cat-trigger:hover {
+  opacity: 0.95;
+  transform: scale(1.08);
+}
+
+.cat-trigger {
+  margin-left: 10px;
 }
 
 .small-note {
@@ -140,6 +185,7 @@ button:hover {
   margin-top: 12px;
   font-weight: bold;
   color: var(--accent-dark);
+  font-size: 1rem;
 }
 
 .tiny {
@@ -152,6 +198,10 @@ button:hover {
   margin-top: 20px;
   font-weight: bold;
   color: var(--accent-dark);
+}
+
+.ending-rest {
+  margin-top: 18px;
 }
 
 .background-decor {
@@ -172,34 +222,43 @@ button:hover {
   box-shadow: 0 0 12px rgba(255, 255, 255, 0.8);
 }
 
-.s1 {
-  top: 12%;
-  left: 15%;
-  animation-delay: 0s;
+.s1 { top: 10%; left: 12%; animation-delay: 0s; }
+.s2 { top: 20%; left: 82%; animation-delay: 1s; }
+.s3 { top: 68%; left: 10%; animation-delay: 2s; }
+.s4 { top: 80%; left: 78%; animation-delay: 1.5s; }
+.s5 { top: 50%; left: 50%; animation-delay: 0.5s; }
+.s6 { top: 34%; left: 28%; animation-delay: 2.3s; }
+.s7 { top: 62%; left: 70%; animation-delay: 0.8s; }
+
+.heart {
+  position: fixed;
+  width: 12px;
+  height: 12px;
+  background: #f4b6d2;
+  transform: rotate(45deg);
+  pointer-events: none;
+  animation: floatUp 0.9s ease forwards;
+  z-index: 999;
 }
 
-.s2 {
-  top: 24%;
-  left: 82%;
-  animation-delay: 1s;
+.heart::before,
+.heart::after {
+  content: "";
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: #f4b6d2;
+  border-radius: 50%;
 }
 
-.s3 {
-  top: 72%;
-  left: 12%;
-  animation-delay: 2s;
+.heart::before {
+  top: -6px;
+  left: 0;
 }
 
-.s4 {
-  top: 80%;
-  left: 78%;
-  animation-delay: 1.5s;
-}
-
-.s5 {
-  top: 50%;
-  left: 50%;
-  animation-delay: 0.5s;
+.heart::after {
+  left: -6px;
+  top: 0;
 }
 
 @keyframes fadeIn {
@@ -214,12 +273,33 @@ button:hover {
 }
 
 @keyframes float {
-  0%,
-  100% {
+  0%, 100% {
     transform: translateY(0px) scale(1);
   }
   50% {
     transform: translateY(-10px) scale(1.08);
+  }
+}
+
+@keyframes floatUp {
+  to {
+    transform: translateY(-55px) scale(1.2) rotate(45deg);
+    opacity: 0;
+  }
+}
+
+@keyframes glowShift {
+  from {
+    background: linear-gradient(180deg, var(--bg1), var(--bg2));
+  }
+  to {
+    background: linear-gradient(180deg, var(--bg1), var(--bg3));
+  }
+}
+
+@media (max-width: 700px) {
+  .memory-grid {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -239,40 +319,12 @@ button:hover {
   .choices {
     flex-direction: column;
   }
-}
-.heart {
-  position: fixed;
-  width: 10px;
-  height: 10px;
-  background: pink;
-  transform: rotate(45deg);
-  pointer-events: none;
-  animation: floatUp 1s ease forwards;
-}
 
-.heart::before,
-.heart::after {
-  content: "";
-  position: absolute;
-  width: 10px;
-  height: 10px;
-  background: pink;
-  border-radius: 50%;
-}
+  h1 {
+    font-size: 1.9rem;
+  }
 
-.heart::before {
-  top: -5px;
-  left: 0;
-}
-
-.heart::after {
-  left: -5px;
-  top: 0;
-}
-
-@keyframes floatUp {
-  to {
-    transform: translateY(-50px) scale(1.2);
-    opacity: 0;
+  h2 {
+    font-size: 1.5rem;
   }
 }
