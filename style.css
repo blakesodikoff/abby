@@ -1,11 +1,10 @@
 :root {
   --bg1: #f8f3ff;
-  --bg2: #efe4ff;
+  --bg2: #e9dbff;
   --card: rgba(255, 255, 255, 0.82);
   --text: #4d3b63;
   --accent: #9b7fd1;
   --accent-dark: #7a5fb0;
-  --soft-pink: #f4d7e7;
   --shadow: 0 12px 30px rgba(123, 95, 176, 0.15);
 }
 
@@ -43,7 +42,7 @@ body {
 .card {
   background: var(--card);
   backdrop-filter: blur(8px);
-  border: 1px solid rgba(255,255,255,0.6);
+  border: 1px solid rgba(255, 255, 255, 0.6);
   border-radius: 24px;
   box-shadow: var(--shadow);
   padding: 32px;
@@ -56,7 +55,8 @@ body {
   box-shadow: 0 16px 36px rgba(123, 95, 176, 0.18);
 }
 
-h1, h2 {
+h1,
+h2 {
   margin-top: 0;
   line-height: 1.2;
 }
@@ -96,7 +96,7 @@ button {
   font-size: 0.98rem;
   cursor: pointer;
   transition: transform 0.18s ease, background 0.18s ease, box-shadow 0.18s ease;
-  box-shadow: 0 6px 16px rgba(122, 95, 176, 0.25);
+  box-shadow: 0 0 12px rgba(155, 127, 209, 0.4);
 }
 
 button:hover {
@@ -104,66 +104,31 @@ button:hover {
   background: var(--accent-dark);
 }
 
-.background-decor {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  overflow: hidden;
+.stats {
+  margin: 24px auto;
+  padding: 16px 18px;
+  max-width: 420px;
+  background: rgba(255, 255, 255, 0.65);
+  border-radius: 18px;
+  text-align: left;
+  box-shadow: 0 8px 20px rgba(123, 95, 176, 0.08);
 }
 
-.star {
-  position: absolute;
-  width: 10px;
-  height: 10px;
-  background: white;
-  border-radius: 50%;
-  opacity: 0.8;
-  animation: float 4s ease-in-out infinite;
-  box-shadow: 0 0 12px rgba(255,255,255,0.8);
+.stats p {
+  margin: 8px 0;
+  font-size: 0.98rem;
 }
 
-.s1 { top: 12%; left: 15%; animation-delay: 0s; }
-.s2 { top: 24%; left: 82%; animation-delay: 1s; }
-.s3 { top: 72%; left: 12%; animation-delay: 2s; }
-.s4 { top: 80%; left: 78%; animation-delay: 1.5s; }
-.s5 { top: 50%; left: 50%; animation-delay: 0.5s; }
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(12px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.secret-trigger {
+  margin-top: 18px;
+  font-size: 0.9rem;
+  opacity: 0.5;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
 }
 
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0px) scale(1);
-  }
-  50% {
-    transform: translateY(-10px) scale(1.08);
-  }
-}
-
-@media (max-width: 600px) {
-  .card {
-    padding: 24px 18px;
-  }
-
-  p {
-    font-size: 1rem;
-  }
-
-  button {
-    width: 100%;
-  }
-
-  .choices {
-    flex-direction: column;
-  }
+.secret-trigger:hover {
+  opacity: 0.9;
 }
 
 .small-note {
@@ -187,4 +152,91 @@ button:hover {
   margin-top: 20px;
   font-weight: bold;
   color: var(--accent-dark);
+}
+
+.background-decor {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.star {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: white;
+  border-radius: 50%;
+  opacity: 0.8;
+  animation: float 4s ease-in-out infinite;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.8);
+}
+
+.s1 {
+  top: 12%;
+  left: 15%;
+  animation-delay: 0s;
+}
+
+.s2 {
+  top: 24%;
+  left: 82%;
+  animation-delay: 1s;
+}
+
+.s3 {
+  top: 72%;
+  left: 12%;
+  animation-delay: 2s;
+}
+
+.s4 {
+  top: 80%;
+  left: 78%;
+  animation-delay: 1.5s;
+}
+
+.s5 {
+  top: 50%;
+  left: 50%;
+  animation-delay: 0.5s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px) scale(1);
+  }
+  50% {
+    transform: translateY(-10px) scale(1.08);
+  }
+}
+
+@media (max-width: 600px) {
+  .card {
+    padding: 24px 18px;
+  }
+
+  p {
+    font-size: 1rem;
+  }
+
+  button {
+    width: 100%;
+  }
+
+  .choices {
+    flex-direction: column;
+  }
 }
