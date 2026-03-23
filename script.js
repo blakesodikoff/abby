@@ -7,7 +7,7 @@ let unlocked = {
 
 function showScene(sceneId) {
   const scenes = document.querySelectorAll(".scene");
-  scenes.forEach(scene => scene.classList.remove("active"));
+  scenes.forEach((scene) => scene.classList.remove("active"));
 
   const nextScene = document.getElementById(sceneId);
   if (nextScene) {
@@ -28,7 +28,7 @@ function trackMemory(sceneId) {
 }
 
 function updateCounter() {
-  const count = Object.values(unlocked).filter(value => value).length;
+  const count = Object.values(unlocked).filter((value) => value).length;
   const counter = document.getElementById("memory-counter");
 
   if (counter) {
