@@ -46,3 +46,24 @@ function unlockSpecialEnding() {
     trueEnding.style.display = "block";
   }
 }
+const introMessage = "It is your birthday. A tiny world has opened just for you. It is full of cozy magic, strange choices, sweet memories, and a Goose who is very obviously in love with you.";
+
+function typeWriter(elementId, text, speed = 25) {
+  let i = 0;
+  const element = document.getElementById(elementId);
+  element.innerHTML = "";
+
+  function type() {
+    if (i < text.length) {
+      element.innerHTML += text.charAt(i);
+      i++;
+      setTimeout(type, speed);
+    }
+  }
+
+  type();
+}
+
+window.onload = () => {
+  typeWriter("intro-text", introMessage);
+};
