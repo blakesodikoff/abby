@@ -48,6 +48,12 @@ body {
   box-shadow: var(--shadow);
   padding: 32px;
   text-align: center;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 36px rgba(123, 95, 176, 0.18);
 }
 
 h1, h2 {
@@ -158,4 +164,27 @@ button:hover {
   .choices {
     flex-direction: column;
   }
+}
+
+.small-note {
+  font-size: 0.92rem;
+  opacity: 0.75;
+}
+
+#memory-counter {
+  margin-top: 12px;
+  font-weight: bold;
+  color: var(--accent-dark);
+}
+
+.tiny {
+  font-size: 0.85rem;
+  opacity: 0.65;
+  margin-top: 10px;
+}
+
+.bonus {
+  margin-top: 20px;
+  font-weight: bold;
+  color: var(--accent-dark);
 }
