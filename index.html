@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chicken's Birthday Adventure</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="background-decor">
+    <div class="star s1"></div>
+    <div class="star s2"></div>
+    <div class="star s3"></div>
+    <div class="star s4"></div>
+    <div class="star s5"></div>
+  </div>
+
+  <main class="container">
+
+    <!-- START -->
+    <section id="scene-start" class="scene active">
+      <div class="card">
+        <p class="eyebrow">A birthday story for Abby</p>
+        <h1>Welcome, Chicken 🐥</h1>
+        <p>
+          It is your birthday. A small adventure has appeared just for you.
+          It includes cozy places, suspiciously romantic moments, and at least one Dr. Pepper.
+        </p>
+        <button onclick="showScene('scene-choice-1')">Start Adventure</button>
+      </div>
+    </section>
+
+    <!-- CHOICE 1 -->
+    <section id="scene-choice-1" class="scene">
+      <div class="card">
+        <h2>How should Chicken begin her special day?</h2>
+        <div class="choices">
+          <button onclick="showScene('scene-drpepper')">Grab a Dr. Pepper</button>
+          <button onclick="showScene('scene-cozy')">Visit a cozy little world</button>
+          <button onclick="showScene('scene-goose')">Follow Goose</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- DR PEPPER -->
+    <section id="scene-drpepper" class="scene">
+      <div class="card">
+        <h2>The Dr. Pepper Path</h2>
+        <p>
+          You open a cold Dr. Pepper and immediately gain +5 birthday magic.
+          Somewhere nearby, Goose is smiling because this feels very on brand.
+        </p>
+        <div class="choices">
+          <button onclick="showScene('scene-memory-hub')">Search for birthday clues</button>
+          <button onclick="showScene('scene-memory-hub')">Ask Goose what he is smiling about</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- COZY -->
+    <section id="scene-cozy" class="scene">
+      <div class="card">
+        <h2>The Cozy World</h2>
+        <p>
+          You wake up in a soft lavender world. Books are stacked neatly,
+          crochet projects are in progress, and Mr. Whiskers rules as a tiny king.
+          Everything feels calm and warm.
+        </p>
+        <div class="choices">
+          <button onclick="showScene('scene-memory-hub')">Visit the library cottage</button>
+          <button onclick="showScene('scene-memory-hub')">Walk toward the flower field</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- GOOSE -->
+    <section id="scene-goose" class="scene">
+      <div class="card">
+        <h2>Following Goose</h2>
+        <p>
+          Goose takes your hand and says he knows a few places worth revisiting.
+          You can tell he is about to get a little sentimental.
+        </p>
+        <div class="choices">
+          <button onclick="showScene('scene-memory-hub')">Go somewhere familiar</button>
+          <button onclick="showScene('scene-memory-hub')">Let him surprise you</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- MEMORY HUB -->
+    <section id="scene-memory-hub" class="scene">
+      <div class="card">
+        <h2>Memory Select</h2>
+        <p>Choose a memory to unlock:</p>
+        <div class="choices">
+          <button onclick="showScene('scene-club185')">The First Date</button>
+          <button onclick="showScene('scene-beach')">The Beach</button>
+          <button onclick="showScene('scene-pool')">Paradise</button>
+          <button onclick="showScene('scene-fall')">The Alphabet Incident</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- CLUB 185 -->
+    <section id="scene-club185" class="scene">
+      <div class="card">
+        <h2>Club 185</h2>
+        <p>
+          Hinge led us to Club 185 in German Village.
+          Somehow that turned into this. You and me, Chicken and Goose,
+          building something real from one simple moment.
+        </p>
+        <button onclick="showScene('scene-memory-hub')">Back to memories</button>
+        <button onclick="showScene('scene-ending')">Continue</button>
+      </div>
+    </section>
+
+    <!-- BEACH -->
+    <section id="scene-beach" class="scene">
+      <div class="card">
+        <h2>Glencoe Beach</h2>
+        <p>
+          We had only been dating for a month or two.
+          Sitting with you on the beach in Chicago, throwing rocks in the sand,
+          I knew. I told you I loved you.
+        </p>
+        <p>
+          At first you thought I was joking. Then you saw I was serious.
+          Then you told me you loved me too. And we kissed on the beach.
+        </p>
+        <button onclick="showScene('scene-memory-hub')">Back to memories</button>
+        <button onclick="showScene('scene-ending')">Continue</button>
+      </div>
+    </section>
+
+    <!-- POOL -->
+    <section id="scene-pool" class="scene">
+      <div class="card">
+        <h2>Paradise</h2>
+        <p>
+          In that hotel pool room, holding each other while Paradise played,
+          everything felt still for a moment. Just us, the water, the music,
+          and something that felt bigger than the moment itself.
+        </p>
+        <button onclick="showScene('scene-memory-hub')">Back to memories</button>
+        <button onclick="showScene('scene-ending')">Continue</button>
+      </div>
+    </section>
+
+    <!-- FALL -->
+    <section id="scene-fall" class="scene">
+      <div class="card">
+        <h2>The Alphabet Incident</h2>
+        <p>
+          On a road trip, you were completely focused on finding letters on license plates.
+          So focused that you tripped on a bump and fell.
+        </p>
+        <p>
+          I felt bad. I really did. But it was also unbelievably cute,
+          and I failed by laughing. I am sorry. Mostly.
+        </p>
+        <button onclick="showScene('scene-memory-hub')">Back to memories</button>
+        <button onclick="showScene('scene-ending')">Continue</button>
+      </div>
+    </section>
+
+    <!-- END -->
+    <section id="scene-ending" class="scene">
+      <div class="card">
+        <p class="eyebrow">Final message unlocked</p>
+        <h2>Happy 23rd Birthday, Chicken 💜</h2>
+        <p>
+          This is a birthday website, but it is also a reminder.
+          I love our memories. I love our time together. I love you.
+        </p>
+        <p>
+          From Club 185 to Glencoe Beach, from hotel pools to road trip chaos,
+          you have made my life warmer, funnier, and more meaningful.
+        </p>
+        <p>
+          I feel lucky that I get to love you.
+          I feel even luckier that you love me too.
+        </p>
+        <p>
+          Happy birthday, Abby. I hope 23 is soft, exciting, and full of joy.
+        </p>
+        <p class="signature">Love, Goose</p>
+        <div class="choices">
+          <button onclick="showScene('scene-start')">Play Again</button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
