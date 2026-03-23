@@ -240,3 +240,39 @@ button:hover {
     flex-direction: column;
   }
 }
+.heart {
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  background: pink;
+  transform: rotate(45deg);
+  pointer-events: none;
+  animation: floatUp 1s ease forwards;
+}
+
+.heart::before,
+.heart::after {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: pink;
+  border-radius: 50%;
+}
+
+.heart::before {
+  top: -5px;
+  left: 0;
+}
+
+.heart::after {
+  left: -5px;
+  top: 0;
+}
+
+@keyframes floatUp {
+  to {
+    transform: translateY(-50px) scale(1.2);
+    opacity: 0;
+  }
+}
