@@ -67,3 +67,20 @@ function typeWriter(elementId, text, speed = 25) {
 window.onload = () => {
   typeWriter("intro-text", introMessage);
 };
+
+
+document.addEventListener("click", function (e) {
+  createHeart(e.clientX, e.clientY);
+});
+
+function createHeart(x, y) {
+  const heart = document.createElement("div");
+  heart.className = "heart";
+  heart.style.left = x + "px";
+  heart.style.top = y + "px";
+  document.body.appendChild(heart);
+
+  setTimeout(() => {
+    heart.remove();
+  }, 1000);
+}
